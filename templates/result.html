@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulses Adulteration Detection- Result</title>
+    <style>
+        body {
+            /* Add background image */
+            background-image: url('https://www.onmanorama.com/content/dam/mm/en/food/features/images/2021/2/11/pulses.jpg.transform/845x440/image.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            color: white;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: white;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pulses Adulteration Detection - Result</h1>
+        <div class="result">
+            <p>The Predicted Adulteration is: <strong>{{ result }}</strong></p>
+        </div>
+    </div>
+</body>
+</html>

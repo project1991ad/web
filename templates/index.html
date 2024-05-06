@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulses Adulteration Detection</title>
+    <style>
+        body {
+            background-image: url('https://www.onmanorama.com/content/dam/mm/en/food/features/images/2021/2/11/pulses.jpg.transform/845x440/image.jpg');
+}
+    /*background-image: url('https://www.onmanorama.com/content/dam/mm/en/food/features/images/2021/2/11/pulses.jpg.transform/845x440/image.jpg');
+}*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(0, 0, 0,0.9);
+    height:85vh;
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto; /* Center horizontally */
+    border-radius: 10px; /* Add rounded corners */
+    color: white; /* Set text color to white for all elements within .container */
+    border: 2px;
+}
+
+h1, h2, select, input[type="text"], input[type="submit"] {
+    text-align: center; /* Justify text horizontally */
+}
+
+form {
+    text-align: center; /* Override text alignment for form elements only (optional) */
+}
+
+        select, input[type="submit"] {
+            margin: 10px auto;
+        }
+
+        input[type="file"] {
+            background-image: none;
+            background-size: cover;
+            background-position: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Code for image preview (if using separate image element) */
+        #imagePreview {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pulses Adulteration Detection</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" id="imageInput"> <br>
+            <input type="submit" value="Predict">
+        </form>
+
+        <img id="imagePreview" src="" alt="Selected Image Preview" style="width: 150px; height: 100px; object-fit: cover; margin-top: 10px;">
+    </div>
+
+    <script>
+        // Get references to the file input and image preview elements
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+
+        // Add event listener to handle file selection
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0]; // Get the selected file
+
+            // Check if a file is selected
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result; // Update image preview source
+                };
+
+                reader.readAsDataURL(file); // Read the file as data URL
+            } else {
+                imagePreview.src = ""; // Clear preview if no file selected
+            }
+        });
+    </script>
+</body>
+</html>
